@@ -1,0 +1,55 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin2 infinite 20s linear;
+  }
+}
+
+.App-headerz {
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: purple;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin2 {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.body-text {
+  font-family: "Oswald", sans-serif;
+  font-size: 1.39rem;
+  text-shadow: none;
+  text-decoration: none;
+  color: #61dafb;
+  /* margin-left: -39px; */
+  display: inline-flex;
+  margin-top: 19.89px;
+
+  p {
+    margin-left: 2.6rem;
+    margin-right: 1.3rem;
+    color: white;
+  }
+}
