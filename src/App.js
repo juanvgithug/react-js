@@ -5,7 +5,8 @@ import React from "react";
 import DefaultGreeting from "./components/DefaultGreeting";
 import AppFooter from "./components/AppFooter";
 import NavBar from "./components/NavBar";
-
+import ItemListContainer from "./components/ItemListContainer"
+  
 //BootStrap
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -17,8 +18,8 @@ import desktopImage from './assets/img/denim_back.jpg';
 
 //Begin App
 window.camadaID = 16915;
-window.claseID = "Clase 3";
-window.claseNombre = "JSX & Transpiling";
+window.claseID = "Clase 4";
+window.claseNombre = " COMPONENTES I";
 window.brandName = "TiendaReactX";
 
 function App() {
@@ -27,7 +28,8 @@ function App() {
     <>
       <div className="App content-container" style={{backgroundImage: `url(${imageUrl})`,}}>
         <NavBar />
-        <DefaultGreeting />
+        <ItemListContainer greeting = "Hola Mundo"/>
+        <DefaultGreeting  />
       </div>{" "}
       <AppFooter />
     </>

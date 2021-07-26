@@ -18,6 +18,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 //Custom components
 import "./NavBar.scss";
 import Logo2 from "./Logo";
+import CartWidget from "./CartWidget";
 
 const NavBar = () => {
   return (
@@ -25,11 +26,11 @@ const NavBar = () => {
       <header>
         <nav>
           <Container fluid>
-            <Row>
-              <Col className="col-3 fauto">
+            <Row className="justify-content-md-center">
+              <Col xs lg="3">
                 <Logo2 />{" "}
               </Col>
-              <Col className="col-6 fauto menu-text">
+              <Col md="auto" className ="fauto menu-text">
                 <Col>
                   <p>
                     <FontAwesomeIcon icon={faHome} /> Principal
@@ -50,6 +51,11 @@ const NavBar = () => {
                     <FontAwesomeIcon icon={faAt} /> Contacto
                   </p>
                 </Col>
+              </Col>
+              <Col xs lg="1" className ="fauto menuText">
+                <p>
+                  <CartWidget/>
+                </p>
               </Col>
             </Row>
           </Container>
