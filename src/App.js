@@ -1,11 +1,10 @@
 //r34c7
 import React from "react";
 
-//components
-import AppFooter from "./components/AppFooter";
-import NavBar from "./components/NavBar";
-import ItemListContainer from "./components/ItemListContainer"
-
+//Components
+import NavBar from "./components/dumb/NavBar";
+import AppFooter from "./components/dumb/AppFooter";
+import ItemListContainer from "./components/dumb/ItemListContainer";
 
 //BootStrap
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -18,8 +17,8 @@ import desktopImage from './assets/img/denim_back.jpg';
 
 //Begin App
 window.camadaID = 16915;
-window.claseID = "Clase 5";
-window.claseNombre = " COMPONENTES II";
+window.claseID = "Clase 6";
+window.claseNombre = "Promises, Asincronía y Maps";
 window.brandName = "TiendaReactX";
 
 function App() {
@@ -27,8 +26,8 @@ function App() {
   return (
     <div>
       <div className="App content-container" style={{backgroundImage: `url(${imageUrl})`,}}>
-        <NavBar />
-        <ItemListContainer greeting = "Hola Mundo"/>
+        <NavBar brandname={window.brandName} />
+        <ItemListContainer greeting = "Catálogo de Productos"/>
       </div>{" "}
       <AppFooter />
     </div>
