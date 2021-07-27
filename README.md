@@ -1,6 +1,4 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Coderhouse | Proyecto Front-End tienbda E-Commerce en ReactJS
 
 ## Available Scripts
 
