@@ -1,4 +1,4 @@
-# Coderhouse | Proyecto Front-End tienbda E-Commerce en ReactJS
+# Coderhouse | Front-End e-Commerce website // ReactJS
 
 ## Available Scripts
 
