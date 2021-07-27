@@ -2,11 +2,11 @@
 import React from "react";
 
 //components
-import DefaultGreeting from "./components/DefaultGreeting";
 import AppFooter from "./components/AppFooter";
 import NavBar from "./components/NavBar";
 import ItemListContainer from "./components/ItemListContainer"
-  
+
+
 //BootStrap
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -18,21 +18,20 @@ import desktopImage from './assets/img/denim_back.jpg';
 
 //Begin App
 window.camadaID = 16915;
-window.claseID = "Clase 4";
-window.claseNombre = " COMPONENTES I";
+window.claseID = "Clase 5";
+window.claseNombre = " COMPONENTES II";
 window.brandName = "TiendaReactX";
 
 function App() {
   const imageUrl = desktopImage;
   return (
-    <>
+    <div>
       <div className="App content-container" style={{backgroundImage: `url(${imageUrl})`,}}>
         <NavBar />
         <ItemListContainer greeting = "Hola Mundo"/>
-        <DefaultGreeting  />
       </div>{" "}
       <AppFooter />
-    </>
+    </div>
   );
 }
 

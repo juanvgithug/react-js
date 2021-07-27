@@ -8,14 +8,14 @@ import "./CartWidget.scss";
 
 const CartWidget = () => {
   return (
-    <>
+    <div>
       {"\u00A0"}
       <div
         style={{ textAlign: "center", marginTop: 0, marginLeft: 78 }}
       >
         <ShoppingCartIcon className ="cartIcon" /> {"\u00A0"}
       </div>
-    </>
+    </div>
   );
 };
 

@@ -10,7 +10,7 @@ import Col from 'react-bootstrap/Col';
 
 const Logo2 = () => {
   return (
-    <>
+    <div>
       <div className="logo-container">
         <Container>
           <Row>
@@ -23,7 +23,7 @@ const Logo2 = () => {
           </Row>
         </Container>
       </div>
-    </>
+    </div>
   );
 };
 

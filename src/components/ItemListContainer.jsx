@@ -1,4 +1,7 @@
+//r3ac7
 import React from "react";
+//custom components
+import ItemCount from "./ItemCount";
 
 function ItemListContainer(props) {
   return (
@@ -12,6 +15,7 @@ function ItemListContainer(props) {
       }}
     >
       <h1>ItemListContainer: {props.greeting}</h1>
+      <ItemCount stock={5} initial={1} />
     </div>
   );
 }
