@@ -1,0 +1,36 @@
+.listItem {
+    padding: 5px;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 4px 6px 5px 0px rgba(78, 78, 78, 0.75);
+
+
+    &__img {
+        width: 250px;
+        height: auto;
+    }
+
+    &__descrip {
+
+        &__titulo {
+            margin-bottom: 2px;
+            color: #333;
+            font-size: 20px;
+            text-transform: capitalize;
+        }
+
+        &__precio {
+            margin-bottom: 2px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        &__plusIcon {
+            display: inline-block;
+            font-size: 25px;
+            transform: translate(210px, -40px);
+            cursor: pointer;
+        }
+    }
+}
