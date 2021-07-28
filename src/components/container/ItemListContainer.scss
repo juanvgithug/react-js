@@ -1,0 +1,16 @@
+.item-list-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 89px 26px;
+}
+
+.item-list-container h2 {
+    margin-bottom: 13px;
+}
+
+.item-list-container p {
+    font-size: 1.3rem;
+}

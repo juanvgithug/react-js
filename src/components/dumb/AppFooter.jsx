@@ -22,10 +22,10 @@ const AppFooter = () => {
           <Container fluid>
           {/* Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop */}
           <Row>
-            <Col xs={6} md={4}>
+            <Col xs={6} md={4} >
             <FontAwesomeIcon icon={ faUserGraduate } /> : Juan Vidal - <FontAwesomeIcon icon={ faUniversity } /> : {window.camadaID}
             </Col>
-            <Col xs={6} md={4}>
+            <Col xs={6} md={4} style={{textAlign:'center'}}>
             { window.claseID } - { window.claseNombre }
             </Col>
             <Col xs={6} md={4}>
