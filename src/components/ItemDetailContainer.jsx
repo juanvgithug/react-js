@@ -12,18 +12,6 @@ const ItemDetailContainer = ({ greeting, itemId }) => {
       <main className="App-container">
         <FlickerTitle props greeting={greeting} />
         <ItemDetail id={itemId ? itemId : 0} />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
       </main>
     </>
   );

@@ -1,6 +1,7 @@
 import imgCat1 from "../assets/img/remeras.jpg";
 import imgCat2 from "../assets/img/pantalones.jpg";
 import imgCat3 from "../assets/img/lenceria.jpg";
+import imgCat4 from "../assets/img/paletas.png";
 
 const catList = [
   {
@@ -23,6 +24,13 @@ const catList = [
     name: "Lencería",
     url:"/category/3",
     catID: 3
+  },
+  {
+    itemID: 4,
+    image: imgCat4,
+    name: "Paletas",
+    url:"/category/4",
+    catID: 4
   },
 ];
 

@@ -3,6 +3,8 @@ import imgRemeraTiger2 from "../assets/img/remeraLowCoste.jpg";
 import imgRemeraTiger3 from "../assets/img/remeraTiger2.jpg";
 import imgRemeraTiger4 from "../assets/img/nevado.jpg";
 import imgRemeraTiger5 from "../assets/img/vs2.jpg";
+import imgRemeraTiger6 from "../assets/img/paletas.png";
+
 
 const productList = [{
     itemID: 1,
@@ -48,6 +50,15 @@ const productList = [{
     price: 2626,
     stock: 1,
     url: "/item/5",
+  },
+ {
+    itemID: 6,
+    catID: 4,
+    image: imgRemeraTiger6,
+    name: "Paletas",
+    price: 56,
+    stock: 1,
+    url: "/item/6",
   },
 
 ];

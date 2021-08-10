@@ -12,18 +12,7 @@ const CatListContainer = (props) => {
       <main className="App-container">
         <FlickerTitle props greeting={props.greeting} />
         <CatList props />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
+
       </main>
     </>
   );

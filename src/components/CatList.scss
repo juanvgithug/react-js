@@ -1,8 +1,79 @@
+// Small tablets and large smartphones (landscape view)
+$screen-sm-min: 576px;
+
+// Small tablets (portrait view)
+$screen-md-min: 768px;
+
+// Tablets and small desktops
+$screen-lg-min: 992px;
+
+// Large tablets and desktops
+$screen-xl-min: 1200px;
+
+// Small devices
+@mixin sm {
+    @media (min-width: #{$screen-sm-min}) {
+        @content;
+    }
+}
+
+// Medium devices
+@mixin md {
+    @media (min-width: #{$screen-md-min}) {
+        @content;
+    }
+}
+
+// Large devices
+@mixin lg {
+    @media (min-width: #{$screen-lg-min}) {
+        @content;
+    }
+}
+
+// Extra large devices
+@mixin xl {
+    @media (min-width: #{$screen-xl-min}) {
+        @content;
+    }
+}
+
+// Custom devices
+@mixin rwd($screen) {
+    @media (min-width: $screen+'px') {
+        @content;
+    }
+}
+
 .cat-list-container {
     display: grid;
-    grid-template: 1fr / 1fr 1fr 1fr;
+    
     gap: 39px;
     margin: 39px 26px;
     //opacity: 89%;
+
+    padding: 0 15px;
+
+    // 576px window width and more
+    @include sm {
+        grid-template: 2fr auto / 3fr auto;
+    }
+
+    // 992px window width and more
+    @include lg {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 1100px;
+        grid-template: 1fr auto / 4fr auto;
+    }
+
+    // 1400px window width and more
+    @include rwd(1400) {
+        margin-bottom: 20px;
+        margin-top: 20px;
+        grid-template: 1fr auto / 5fr auto;
+    }
+
+    max-width: 89%;
 }
 

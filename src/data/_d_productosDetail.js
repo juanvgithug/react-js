@@ -3,6 +3,8 @@ import imgRemeraTiger2 from "../assets/img/remeraLowCoste.jpg";
 import imgRemeraTiger3 from "../assets/img/remeraTiger2.jpg";
 import imgRemeraTiger4 from "../assets/img/nevado.jpg";
 import imgRemeraTiger5 from "../assets/img/vs2.jpg";
+import imgRemeraTiger6 from "../assets/img/paletas.png";
+
 
 const productDetailList = [
   {
@@ -61,6 +63,18 @@ const productDetailList = [
     price: 2626,
     stock: 1,
     url: "/item/5",
+  },
+  {
+    itemID: 6,
+    catID: 4,
+    image: imgRemeraTiger6,
+    name: "Paletas",
+    descr: "Paletas de Helado",
+    color: "Chocolate con Granas",
+    brand: "Pedri & Jose",
+    price: 56,
+    stock: 1,
+    url: "/item/6",
   },
 
 ];

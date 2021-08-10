@@ -20,12 +20,12 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 //Custom components
-import Spinner from "./Spinner";
-import CartWidget from "./CartWidget";
-import ItemListContainer from "./ItemListContainer";
-import CatListContainer from "./CatListContainer";
-import ItemDetailContainer from "./ItemDetailContainer";
-import Home from "./Home";
+const Spinner = React.lazy(() => import (  "./Spinner"));
+const CartWidget = React.lazy(() => import(  "./CartWidget"));
+const ItemListContainer = React.lazy(() => import (  "./ItemListContainer"));
+const CatListContainer = React.lazy(() => import (  "./CatListContainer"));
+const ItemDetailContainer = React.lazy(() => import (  "./ItemDetailContainer"));
+const Home = React.lazy(() => import (  "./Home"));
 
 const NavBar = () => {
   function routeHandler(props) {
