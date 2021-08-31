@@ -60,11 +60,8 @@ const NavBar = () => {
       case "/cart":
         return (
           <>
-            <ItemListContainer
-              greeting="Categorías"
-              itemId={props.match.params.id}
-              catId={Number(props.match.params.id)}
-            />
+            <ItemListContainer greeting="Compras"
+            catId={Number(0)}/>
           </>
         );
       //break;
