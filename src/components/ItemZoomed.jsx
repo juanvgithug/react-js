@@ -1,16 +1,37 @@
 //R34c7
 import React from "react";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 //Bootstrap
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
+//Material UI
+import Button from "@material-ui/core/Button";
+import PaymentTwoToneIcon from "@material-ui/icons/PaymentTwoTone";
+import AddShoppingCartTwoToneIcon from "@material-ui/icons/AddShoppingCartTwoTone";
+
 //Custom Components
 import ItemCount from "./ItemCount";
 import "./ItemZoomed.scss";
 
+import useAppContext from "../context/useAppContext";
+
 const ItemZoomed = (props) => {
+  const [quantity, setQuantity] = useState(0);
+  const { addProduct } = useAppContext();
+
+  const handleCounter = (contador) => {
+    setQuantity(contador);
+  };
+
+  const addToCart = () => {
+    const product = props;
+    addProduct(product, quantity);
+  };
+
   return (
     <Container fluid className="product-containerz">
       <Row>
@@ -58,9 +79,61 @@ const ItemZoomed = (props) => {
           </Row>
         </Col>
       </Row>
+
       <div className="product__counter-containerz">
-        <ItemCount initial={1} stock={props.stock} />
+        <ItemCount initial={0} stock={props.stock} onAdd={handleCounter} />
       </div>
+      <Row>
+        <Col>
+          <div
+            className="product__counter__addcart-container"
+            style={{
+              display: Boolean(Number(quantity) === Number(0))
+                ? "none"
+                : "block",
+            }}
+          >
+            <Button
+              className="button__agregar"
+              onClick={addToCart}
+              disabled={
+                (Boolean(Number(quantity) === Number(0)) ||
+                  Number(quantity) > Number(props.stock)) &&
+                "disabled"
+              }
+            >
+              Añadir al carrito{" "}
+              <AddShoppingCartTwoToneIcon className="cartIcon2" color="white" />{" "}
+              {"\u00A0"}({quantity})
+            </Button>
+          </div>
+        </Col>
+        <Col>
+          <div
+            className="product__counter__checkout-container"
+            style={{
+              display: Boolean(Number(quantity) === Number(0))
+                ? "none"
+                : "block",
+            }}
+          >
+            <Link to="/cart">
+              <Button
+                className="button__terminar"
+                disabled={
+                  (Boolean(Number(quantity) === Number(0)) ||
+                    Number(quantity) > Number(props.stock)) &&
+                  "disabled"
+                }
+              >
+                Terminar Compra{"\u00A0"}
+                <PaymentTwoToneIcon className="cartIcon3" color="white" />{" "}
+                {"\u00A0"}
+              </Button>
+            </Link>
+          </div>
+        </Col>
+      </Row>
     </Container>
   );
 };

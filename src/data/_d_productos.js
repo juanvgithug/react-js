@@ -51,15 +51,15 @@ const productList = [{
     stock: 1,
     url: "/item/5",
   },
- {
-    itemID: 6,
-    catID: 4,
-    image: imgRemeraTiger6,
-    name: "Paletas",
-    price: 56,
-    stock: 1,
-    url: "/item/6",
-  },
+//  {
+//     itemID: 6,
+//     catID: 4,
+//     image: imgRemeraTiger6,
+//     name: "Paletas",
+//     price: 56,
+//     stock: 1,
+//     url: "/item/6",
+//   },
 
 ];
 

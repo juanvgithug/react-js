@@ -25,13 +25,13 @@ const catList = [
     url:"/category/3",
     catID: 3
   },
-  {
-    itemID: 4,
-    image: imgCat4,
-    name: "Paletas",
-    url:"/category/4",
-    catID: 4
-  },
+  // {
+  //   itemID: 4,
+  //   image: imgCat4,
+  //   name: "Paletas",
+  //   url:"/category/4",
+  //   catID: 4
+  // },
 ];
 
 export default catList;

@@ -9,14 +9,22 @@ import RemoveIcon from "@material-ui/icons/Remove";
 
 import "./ItemCount.scss";
 
-const ItemCount = ({ initial, stock }) => {
+const ItemCount = ({ initial, stock, onAdd }) => {
   const [count, setCount] = useState(initial);
 
   const handleAdd = () => {
-    setCount(count + 1);
+    let nCount = Number(count) + 1;
+    setCount(nCount);
+    onAdd(nCount);
+    //console.log(`ItemCount::handleAdd() count=${nCount}`);
+    return nCount;
   };
-  const handleSubtract = () => {
-    setCount(count - 1);
+  const handleSubstract = () => {
+    let nCount = Number(count) - 1;
+    setCount(nCount);
+    onAdd(nCount);
+    //console.log(`ItemCount::handleSubstract() count=${nCount}`);
+    return nCount;
   };
 
   return (
@@ -26,7 +34,7 @@ const ItemCount = ({ initial, stock }) => {
           aria-label="contained  primary button group"
           variant="contained"
         >
-          <Button onClick={handleSubtract} disabled={count === 1 && "disabled"}>
+          <Button onClick={handleSubstract} disabled={Boolean(Number(count)  === 0)  && "disabled"}>
             {" "}
             <RemoveIcon fontSize="small" />
           </Button>
@@ -37,7 +45,7 @@ const ItemCount = ({ initial, stock }) => {
             {stock}
             {"\u00A0"}{" "}
           </span>
-          <Button onClick={handleAdd} disabled={count === stock && "disabled"}>
+          <Button onClick={handleAdd} disabled={Number(count) === Number(stock) && "disabled"}>
             {" "}
             <AddIcon fontSize="small" />
           </Button>

@@ -13,11 +13,20 @@ function splitString(sParam) {
 
   let nRandomChar = generateRandomInteger(sParam.length);
   let myChar = sParam[nRandomChar];
+
+  var i;
+  for (i = nRandomChar; i < sParam.length; i++) {
+    if (sParam[i] !== " ") {
+      break;
+    }
+    nRandomChar++;
+  }
+
   let str1 = sParam.substring(0, nRandomChar);
   let str2 = myChar;
   let str3 = sParam.substring(nRandomChar + 1);
 
-  console.log("char=", myChar, str1, str2, str3);
+  //console.log("splitString():: char=", myChar, str1, str2, str3);
 
   retVal.push(str1);
   retVal.push(str2);
@@ -27,28 +36,30 @@ function splitString(sParam) {
 }
 
 const FlickerTitle = (props) => {
-  var random_boolean = Math.random() < 0.5; //50% probability of getting true
+  var random_boolean = Math.random() < 0.9; //50% probability of getting true
   let myStr = splitString(props.greeting);
   let myStr1 = myStr[0];
   let myStr2 = myStr[1];
   let myStr3 = myStr[2];
 
+  //console.log("FlickerTitle():: title=", myStr1, myStr2, myStr3);
+
   return (
     <>
       {random_boolean ? (
-        <div className="Title">
+        <span className="Title">
           <code className="flicker sign" style={{ fontSize: "2.6em" }}>
             {myStr1.length ? myStr1 : ""}
             <span className="fast-flicker">{myStr2.length ? myStr2 : ""}</span>
             {myStr3.length ? myStr3 : ""}{" "}
           </code>
-        </div>
+        </span>
       ) : (
-        <div className="Title">
+        <span className="Title">
           <code className="flicker sign" style={{ fontSize: "2.6em" }}>
             {props.greeting}
           </code>
-        </div>
+        </span>
       )}
     </>
   );

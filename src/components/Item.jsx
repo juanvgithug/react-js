@@ -16,9 +16,9 @@ const Item = (props) => {
         <h6 className="product__name">{props.name}</h6>
         <p className="product__price">${props.price}</p>
       </Link>
-      <div className="product__counter-container">
+      {/* <div className="product__counter-container">
         <ItemCount initial={1} stock={props.stock} />
-      </div>
+      </div> */}
     </article>
   );
 };

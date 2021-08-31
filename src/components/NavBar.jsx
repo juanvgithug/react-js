@@ -20,12 +20,12 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 //Custom components
-const Spinner = React.lazy(() => import (  "./Spinner"));
-const CartWidget = React.lazy(() => import(  "./CartWidget"));
-const ItemListContainer = React.lazy(() => import (  "./ItemListContainer"));
-const CatListContainer = React.lazy(() => import (  "./CatListContainer"));
-const ItemDetailContainer = React.lazy(() => import (  "./ItemDetailContainer"));
-const Home = React.lazy(() => import (  "./Home"));
+const Spinner = React.lazy(() => import ("./Spinner"));
+const CartWidget = React.lazy(() => import("./CartWidget"));
+const ItemListContainer = React.lazy(() => import ("./ItemListContainer"));
+const CatListContainer = React.lazy(() => import ("./CatListContainer"));
+const ItemDetailContainer = React.lazy(() => import ("./ItemDetailContainer"));
+const Home = React.lazy(() => import ("./Home"));
 
 const NavBar = () => {
   function routeHandler(props) {
@@ -47,6 +47,17 @@ const NavBar = () => {
         );
       //break;
       case "/item":
+        return (
+          <>
+            <ItemListContainer
+              greeting="Categorías"
+              itemId={props.match.params.id}
+              catId={Number(props.match.params.id)}
+            />
+          </>
+        );
+      //break;
+      case "/cart":
         return (
           <>
             <ItemListContainer
@@ -111,20 +122,31 @@ const NavBar = () => {
                 />
               </>
             );
+          case "4":
+            return (
+              <>
+                <ItemListContainer
+                  greeting="Paletas"
+                  itemId={props.match.params.id}
+                  catId={Number(props.match.params.id)}
+                />
+              </>
+            );
+
           default:
             return (
               <>
                 <ItemListContainer
-                  greeting="Sin Stock por el momento"
+                  greeting="Otros Productos"
                   itemId={props.match.params.id}
-                  catId={props.match.params.id}
+                  catId={Number(props.match.params.id)}
                 />
               </>
             );
         }
       //break;
       default:
-        console.log("routeHandler path = " + myPath);
+        //console.log("routeHandler path = " + myPath);
         return (
           <>
             <ItemListContainer greeting="Sin Items Para Mostrar" />
@@ -172,7 +194,7 @@ const NavBar = () => {
                     />
                   </Col>
                   <Col className="col-1 fauto">
-                    <CartWidget />
+                    <CartWidget url="/cart"/>
                   </Col>
                 </Row>
               </Container>
@@ -183,7 +205,7 @@ const NavBar = () => {
           <Switch>
             <Route exact path="/" component={routeHandler} />
             <Route exact path="/category" component={routeHandler} />
-            <Route exact path="/item" component={routeHandler} />
+            <Route exact path="/cart" component={routeHandler} />
             <Route path="/category/:id" component={routeHandler} />
             <Route path="/item/:id" component={routeHandler} />
           </Switch>

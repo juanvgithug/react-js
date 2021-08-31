@@ -1,10 +1,14 @@
 import { createContext, useContext, useState, useEffect } from "react";
-import swal from "sweetalert2";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+
 //import firebase from "firebase/app";
 import { useLocalStorage } from "../components/useLocalStorage";
 
+
+
 const AppContext = createContext();
-const useAppContext = () => useContext(AppContext); //Custum Hook para solo importar useAppContext y AppProvider
+const useAppContext = () => useContext(AppContext); //Custom Hook para solo importar useAppContext y AppProvider
 
 export const AppProvider = ({ children }) => {
   const [products, setProducts] = useLocalStorage("products", []);
@@ -16,9 +20,9 @@ export const AppProvider = ({ children }) => {
     signInFlow: "popup",
     // We will display Google and Facebook as auth providers.
     signInOptions: [
-     // firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-     // firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-     // firebase.auth.EmailAuthProvider.PROVIDER_ID, // Other providers don't need to be given as object.
+      // firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+      // firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+      // firebase.auth.EmailAuthProvider.PROVIDER_ID, // Other providers don't need to be given as object.
     ],
     callbacks: {
       // Avoid redirects after sign-in.
@@ -36,6 +40,18 @@ export const AppProvider = ({ children }) => {
   //   return () => unregisterAuthObserver(); // Make sure we un-register Firebase observers when the component unmounts.
   // }, []);
 
+  const myAlert = (message) => {
+    const MySwal = withReactContent(Swal);
+    MySwal.fire({
+      title: <p>Atención</p>,
+      footer: "{ window.brandName }",
+      didOpen: () => {
+        MySwal.clickConfirm();
+      },
+    }).then(() => {
+      return MySwal.fire(<p>{message}</p>);
+    });
+  };
   // Add Product to Cart
   const addProduct = (product, quantity) => {
     const existingProduct = products.find((prod) => prod.id === product.id);
@@ -47,10 +63,8 @@ export const AppProvider = ({ children }) => {
       setProducts([...products, { ...product, quantity }]);
     }
 
-    swal(
-      "Excelente!",
-      `Agregaste ${quantity} ${product.title} al carrito de compras!`, ///Cambiar de lugar desp///
-      "success"
+    myAlert(
+      `Agregaste ${quantity} ${product.title} al carrito de compras!` ///Cambiar de lugar desp///
     );
   };
 
@@ -99,7 +113,8 @@ export const AppProvider = ({ children }) => {
         deleteProduct,
         totalPrice,
         emptyCart,
-      }}>
+      }}
+    >
       {children}
     </AppContext.Provider>
   );
