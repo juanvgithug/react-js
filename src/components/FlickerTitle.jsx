@@ -21,7 +21,7 @@ function splitString(sParam) {
     }
     nRandomChar++;
   }
-
+  myChar = sParam[nRandomChar];
   let str1 = sParam.substring(0, nRandomChar);
   let str2 = myChar;
   let str3 = sParam.substring(nRandomChar + 1);
