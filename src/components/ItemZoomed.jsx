@@ -21,15 +21,16 @@ import useAppContext from "../context/useAppContext";
 
 const ItemZoomed = (props) => {
   const [quantity, setQuantity] = useState(0);
-  const { addProduct } = useAppContext();
+  const { addItem } = useAppContext();
+  const product = { ...props };
 
   const handleCounter = (contador) => {
     setQuantity(contador);
   };
 
   const addToCart = () => {
-    const product = props;
-    addProduct(product, quantity);
+    console.log("ItemZoomed::addToCart props=",product)
+    addItem(product, quantity);
   };
 
   return (

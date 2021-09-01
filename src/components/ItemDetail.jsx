@@ -62,15 +62,7 @@ const ItemDetail = (props) => {
               .map((item) => {
                 return (
                   <div key={item.itemID}>
-                    <ItemZoomed
-                      image={item.image}
-                      name={item.name}
-                      descr={item.descr}
-                      color={item.color}
-                      brand={item.brand}
-                      price={item.price}
-                      stock={item.stock}
-                    />
+                    <ItemZoomed {...item} />
                   </div>
                 );
               })}
@@ -83,15 +75,7 @@ const ItemDetail = (props) => {
           {items.map((item) => {
             return (
               <div key={item.itemID}>
-                <Item
-                  image={item.image}
-                  name={item.name}
-                  descr={item.descr}
-                  color={item.color}
-                  brand={item.brand}
-                  price={item.price}
-                  stock={item.stock}
-                />
+                <Item  {...item}  />
               </div>
             );
           })}

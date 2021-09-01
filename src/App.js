@@ -21,8 +21,8 @@ const AppFooter = React.lazy(() => import("./components/AppFooter"));
 
 //Begin App
 window.camadaID = 16915;
-window.claseID = "Clase 9";
-window.claseNombre = "Eventos";
+window.claseID = "Clase 10";
+window.claseNombre = "Context";
 window.brandName = "TiendaReactX";
 
 function App() {

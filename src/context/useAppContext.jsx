@@ -53,7 +53,7 @@ export const AppProvider = ({ children }) => {
     });
   };
   // Add Product to Cart
-  const addProduct = (product, quantity) => {
+  const addItem = (product, quantity) => {
     const existingProduct = products.find((prod) => prod.id === product.id);
 
     if (existingProduct) {
@@ -64,7 +64,7 @@ export const AppProvider = ({ children }) => {
     }
 
     myAlert(
-      `Agregaste ${quantity} ${product.title} al carrito de compras!` ///Cambiar de lugar desp///
+      `Agregaste ${quantity} ${product.name} al carrito de compras!` //Cambiar de lugar desp
     );
   };
 
@@ -73,13 +73,13 @@ export const AppProvider = ({ children }) => {
     setProducts([...products]);
   };
 
-  //Total Quantity in Cart
+  // Total Quantity in Cart
   const productsQuantity = () => {
     return products.reduce((acc, product) => (acc += product.quantity), 0);
   };
 
   // Delete Product from List
-  const deleteProduct = (id) => {
+  const removeItem = (id) => {
     products.splice(
       products.findIndex((product) => product.id === id),
       1
@@ -95,10 +95,19 @@ export const AppProvider = ({ children }) => {
     );
   };
 
-  const emptyCart = () => {
+  // Clear cart contents
+  const clear = () => {
     products.splice(0, products.length);
     return setProducts([...products]);
   };
+
+  // Check Item Existence
+  const isInCart = (prodID) => {
+    const existingProduct = products.find((prod) => prod.id === prodID);
+    return Boolean(existingProduct);
+  };
+
+
 
   return (
     <AppContext.Provider
@@ -107,12 +116,13 @@ export const AppProvider = ({ children }) => {
         isSignedIn,
         user,
         products,
-        addProduct,
+        addItem,
+        removeItem,
+        clear,
+        isInCart,
         handleQuantity,
         productsQuantity,
-        deleteProduct,
         totalPrice,
-        emptyCart,
       }}
     >
       {children}
