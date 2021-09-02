@@ -14,6 +14,7 @@ import Item from "./Item";
 import productDetailList from "../data/_d_productosDetail.js";
 
 import "./ItemList.scss";
+
 const ItemDetail = (props) => {
   const productId = Number(props.id);
   const [items, setItems] = useState([]);
@@ -75,7 +76,7 @@ const ItemDetail = (props) => {
           {items.map((item) => {
             return (
               <div key={item.itemID}>
-                <Item  {...item}  />
+                <Item {...item} />
               </div>
             );
           })}

@@ -19,19 +19,24 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
+
 //Custom components
-const Spinner = React.lazy(() => import ("./Spinner"));
+import CartContainer from "./CartContainer";
+import FlickerTitle from "./FlickerTitle";
+
+const Spinner = React.lazy(() => import("./Spinner"));
 const CartWidget = React.lazy(() => import("./CartWidget"));
 const ItemListContainer = React.lazy(() => import ("./ItemListContainer"));
 const CatListContainer = React.lazy(() => import ("./CatListContainer"));
-const ItemDetailContainer = React.lazy(() => import ("./ItemDetailContainer"));
+const ItemDetailContainer = React.lazy(() => import("./ItemDetailContainer"));
+
 const Home = React.lazy(() => import ("./Home"));
 
 const NavBar = () => {
   function routeHandler(props) {
     const myPath = String(props.match.path);
-    console.log("routeHandler path = " + myPath);
-    console.log(props);
+    //console.log("routeHandler path = " + myPath);
+    //console.log(props);
 
     switch (myPath) {
       case "/":
@@ -60,8 +65,8 @@ const NavBar = () => {
       case "/cart":
         return (
           <>
-            <ItemListContainer greeting="Compras"
-            catId={Number(0)}/>
+            <FlickerTitle props greeting="Mis Compras" />
+            <CartContainer />
           </>
         );
       //break;

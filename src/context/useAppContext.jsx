@@ -1,11 +1,13 @@
+//R34c7
 import { createContext, useContext, useState, useEffect } from "react";
+
+//Sweet Alert 2
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
 //import firebase from "firebase/app";
 import { useLocalStorage } from "../components/useLocalStorage";
-
-
+import productDetailList from "../data/_d_productosDetail.js";
 
 const AppContext = createContext();
 const useAppContext = () => useContext(AppContext); //Custom Hook para solo importar useAppContext y AppProvider
@@ -52,9 +54,38 @@ export const AppProvider = ({ children }) => {
       return MySwal.fire(<p>{message}</p>);
     });
   };
+
+  const getStock = (nProdID) => {
+    const myProd = products.find((prod) => prod.itemID === nProdID);
+
+    //console.log(" getStock :: nProdID=", nProdID, products);
+
+    if (myProd) {
+      return myProd.stock;
+    }
+
+    return;
+  };
+
+  const handleQuantity = (product, quantity) => {
+    product.quantity = quantity;
+    setProducts([...products]);
+  };
+
+  // Total Quantity in Cart
+  const productsQuantity = () => {
+    let myProdCount = Number(
+      products.reduce((acc, product) => (acc += product.quantity), 0)
+    );
+    //console.log(" productsQuantity :: myProdCount=", myProdCount);
+    return myProdCount;
+  };
+
   // Add Product to Cart
   const addItem = (product, quantity) => {
-    const existingProduct = products.find((prod) => prod.id === product.id);
+    const existingProduct = products.find(
+      (prod) => prod.itemID === product.itemID
+    );
 
     if (existingProduct) {
       existingProduct.quantity += quantity;
@@ -68,31 +99,26 @@ export const AppProvider = ({ children }) => {
     );
   };
 
-  const handleQuantity = (product, quantity) => {
-    product.quantity = quantity;
-    setProducts([...products]);
-  };
-
-  // Total Quantity in Cart
-  const productsQuantity = () => {
-    return products.reduce((acc, product) => (acc += product.quantity), 0);
-  };
-
   // Delete Product from List
   const removeItem = (id) => {
     products.splice(
-      products.findIndex((product) => product.id === id),
+      products.findIndex((product) => product.itemID === id),
       1
     );
     setProducts([...products]);
   };
 
+  function getSum(total, num) {
+    return total + Math.round(num);
+  }
   // Total $ Shopping Cart
   const totalPrice = () => {
-    return products.reduce(
+    const num = products.reduce(
       (acc, product) => (acc += product.quantity * product.price),
       0
     );
+
+    return Math.round((num + Number.EPSILON) * 100) / 100;
   };
 
   // Clear cart contents
@@ -103,11 +129,9 @@ export const AppProvider = ({ children }) => {
 
   // Check Item Existence
   const isInCart = (prodID) => {
-    const existingProduct = products.find((prod) => prod.id === prodID);
+    const existingProduct = products.find((prod) => prod.itemID === prodID);
     return Boolean(existingProduct);
   };
-
-
 
   return (
     <AppContext.Provider
@@ -123,6 +147,8 @@ export const AppProvider = ({ children }) => {
         handleQuantity,
         productsQuantity,
         totalPrice,
+        getStock,
+        myAlert,
       }}
     >
       {children}

@@ -23,13 +23,15 @@ const ItemZoomed = (props) => {
   const [quantity, setQuantity] = useState(0);
   const { addItem } = useAppContext();
   const product = { ...props };
+  const { productsQuantity } = useAppContext();
+  let nProdCount = productsQuantity();
 
   const handleCounter = (contador) => {
     setQuantity(contador);
   };
 
   const addToCart = () => {
-    console.log("ItemZoomed::addToCart props=",product)
+    //console.log("ItemZoomed::addToCart props=", product);
     addItem(product, quantity);
   };
 
@@ -109,31 +111,35 @@ const ItemZoomed = (props) => {
             </Button>
           </div>
         </Col>
-        <Col>
-          <div
-            className="product__counter__checkout-container"
-            style={{
-              display: Boolean(Number(quantity) === Number(0))
-                ? "none"
-                : "block",
-            }}
-          >
-            <Link to="/cart">
-              <Button
-                className="button__terminar"
-                disabled={
-                  (Boolean(Number(quantity) === Number(0)) ||
-                    Number(quantity) > Number(props.stock)) &&
-                  "disabled"
-                }
-              >
-                Terminar Compra{"\u00A0"}
-                <PaymentTwoToneIcon className="cartIcon3" color="white" />{" "}
-                {"\u00A0"}
-              </Button>
-            </Link>
-          </div>
-        </Col>
+        {nProdCount > 0 ? (
+          <Col>
+            <div
+              className="product__counter__checkout-container"
+              style={{
+                display: Boolean(Number(quantity) === Number(0))
+                  ? "none"
+                  : "block",
+              }}
+            >
+              <Link to="/cart">
+                <Button
+                  className="button__terminar"
+                  disabled={
+                    (Boolean(Number(quantity) === Number(0)) ||
+                      Number(quantity) > Number(props.stock)) &&
+                    "disabled"
+                  }
+                >
+                  Terminar Compra{"\u00A0"}
+                  <PaymentTwoToneIcon className="cartIcon3" color="white" />
+                  {"\u00A0"}
+                </Button>
+              </Link>
+            </div>
+          </Col>
+        ) : (
+          " "
+        )}
       </Row>
     </Container>
   );

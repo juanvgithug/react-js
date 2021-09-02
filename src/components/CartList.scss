@@ -1,0 +1,161 @@
+.CartList{
+    margin-top: 26px;
+    color: #fff;
+}
+
+.titulo {
+    font-size: 39px;
+    font-weight: 900;
+    text-align: center;
+    color: #fff;
+
+}
+
+.cart__vacio {
+    margin-top : 13vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    // transform: translateY(50%);
+}
+
+.cart {
+    // text-align: center;
+
+    &__cart {
+        font-size: 40px;
+        font-weight: 900;
+        text-align: center;
+        color: #fff;
+    }
+
+    &__titulos {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-areas: "img titulo cantidad precio subtotal eliminar";
+        padding: 0 13px;
+        border-bottom: 1px solid rgba(153, 153, 153, 0.295);
+        color: #fff;
+
+        &__text {
+            text-align: center;
+        }
+    }
+
+
+    &__detail {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-areas:
+            "img titulo cantidad precio subtotal eliminar";
+        margin: 10px 0;
+        border-bottom: 1px solid rgba(153, 153, 153, 0.295);
+        color: #fff;
+    }
+
+    &__img {
+        grid-area: img;
+
+        &-imagen {
+            width: 8.9vw;
+            object-fit: cover;
+            display: block;
+        }
+    }
+
+    &__items {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-transform: capitalize;
+    }
+
+    &__item {
+        grid-area: titulo;
+    }
+
+    &__cantidad {
+        grid-area: cantidad;
+        //margin-top: 15px;
+        align-items: center;
+        font-family: "Poppins";
+    }
+
+    &__precio {
+        grid-area: precio;
+
+        &::before {
+            content: "$"
+        }
+    }
+
+    &__eliminar {
+        grid-area: eliminar;
+        color: #999;
+        font-weight: 100;
+        margin-bottom: .5rem;
+        cursor: pointer;
+
+        &:hover {
+            color: red;
+        }
+    }
+
+    &__flechas {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: #fff;
+        font-size: 10px;
+        cursor: pointer;
+        margin-bottom: .5rem;
+        margin-left: 5px;
+        & button {
+            //box-shadow: inset 0px 0px 9px 4px #9fb4f2;
+            //background: linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
+            //background-color: #7892c2;
+            //padding: 3px 39px;
+            //text-shadow: 0px 1px 13px #283966;
+            //box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.52);
+            // border-radius: 13px;
+            // border: 1px solid #4e6096;
+            // display: inline-block;
+            cursor: pointer;
+            color: #ffffff;
+            font-family: "Poppins";
+            font-size: 19.89px;
+            // text-decoration: none;
+
+        }
+
+    }
+
+    &__buyTotal {
+        text-align: right;
+        color: #fff;
+        &__title {
+            &--bold {
+                font-size: larger;
+                font-weight: 600;
+            }
+        }
+          button {
+              box-shadow: inset 0px 0px 9px 4px #9acc85;
+              background: linear-gradient(to bottom, #74ad5a 5%, #68a54b 100%);
+              background-color: #74ad5a;
+              border-radius: 13px;
+              border: 1px solid #3b6e22;
+              display: inline-block;
+              cursor: pointer;
+              color: #ffffff;
+              font-family: "Poppins";
+              font-size: 19.89px;
+              padding: 3px 39px;
+              text-decoration: none;
+              text-shadow: 0px 1px 13px #92b879;
+              //box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.52);
+          }
+
+    }
+}
