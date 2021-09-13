@@ -8,7 +8,7 @@ export default function getProducts() {
       if (response.size === 0) reject("Empty");
       const data = response.docs.map((doc) => ({
         ...doc.data(),
-        id: doc.id,
+        id: doc.itemID,
       }));
       resolve(data);
     });

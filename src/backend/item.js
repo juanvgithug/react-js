@@ -6,7 +6,7 @@ export default function getProductsById(id) {
     // Pedimos los datos
     query.get().then((response) => {
       if (response.size === 0) reject("Empty");
-      const data = { ...response.data(), id: response.id };
+      const data = { ...response.data(), id: response.itemID };
       resolve(data);
     });
   });

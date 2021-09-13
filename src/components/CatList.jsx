@@ -10,7 +10,8 @@ import withReactContent from "sweetalert2-react-content";
 
 //Custom Components
 import ItemCat from "./ItemCat";
-import catList from "../data/_d_categorias.js";
+//import catList from "../data/_d_categorias.js";
+import getCategory from "../backend/categories.js";
 
 import "./CatList.scss";
 
@@ -18,9 +19,9 @@ const CatList = (props) => {
   const [cats, setCats] = useState([]);
 
   const getCats = new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve(catList);
-    }, 2000);
+    //setTimeout(() => {
+      resolve(getCategory());
+    //}, 2000);
   });
   
 
